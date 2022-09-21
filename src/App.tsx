@@ -8,6 +8,7 @@ import { history } from './store';
 const App: React.FC = () => (
     <ConnectedRouter history={history}>
         <Switch>
+            <Route path="/controls" component={Views.ControlsView} />
             <Route path="/" component={Views.LandingView} />
         </Switch>
     </ConnectedRouter>

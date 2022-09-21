@@ -1,0 +1,11 @@
+{
+    "name": "Gdańsk Port Północny",
+    "characteristic": [
+        500,
+        1500,
+        500,
+        1500,
+        500,
+        4500
+    ]
+}

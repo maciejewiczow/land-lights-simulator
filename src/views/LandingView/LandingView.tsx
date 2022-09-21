@@ -1,19 +1,24 @@
-import React from 'react';
-import logo from 'assets/logo.svg';
-import { Link, Logo, Wrapper, Header } from './parts';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { AppState } from 'store';
+import { Lantern, SvgWrapper, Wrapper } from './parts';
 
-export const LandingView: React.FC = () => (
-    <Wrapper>
-        <Header>
-            <Logo src={logo} alt="logo" />
-            <p>Edit <code>src/App.tsx</code> and save to reload.</p>
-            <Link
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </Link>
-        </Header>
-    </Wrapper>
-);
+export const LandingView: React.FC = () => {
+    const currentLight = useSelector((state: AppState) => state.currentLight);
+
+    useEffect(() => {
+        window.open(
+            '/controls',
+            'controls',
+            'height=300,width=100,fullscreen=yes,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no',
+        );
+    }, []);
+
+    return (
+        <Wrapper>
+            <SvgWrapper viewBox="0 0 100 100">
+                <Lantern characteristic={currentLight.characteristic} fill="white" cx="50" cy="50" r="50" />
+            </SvgWrapper>
+        </Wrapper>
+    );
+};

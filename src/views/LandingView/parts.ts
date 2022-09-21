@@ -1,38 +1,46 @@
+import { Light } from 'models/Light';
 import styled from 'styled-components';
+import { sum } from 'utils/arrays';
 
 export const Wrapper = styled.div`
-    text-align: center;
-`;
-
-export const Logo = styled.img`
-    height: 40vmin;
-    pointer-events: none;
-
-    @media (prefers-reduced-motion: no-preference) {
-        animation: App-logo-spin infinite 20s linear;
-    }
-
-    @keyframes App-logo-spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-`;
-
-export const Header = styled.header`
-    background-color: #282c34;
-    min-height: 100vh;
+    background-color: black;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    align-items: center;
+    height: 100vh;
 `;
 
-export const Link = styled.a`
-    color: #61dafb;
+export const SvgWrapper = styled.svg`
+    width: 30px;
+    height: 30px;
+`;
+
+const generateKeyframes = ({ characteristic }: Pick<Light, 'characteristic'>) => {
+    const period = characteristic.reduce(sum, 0);
+
+    const arr = [0, ...characteristic];
+
+    let total = 0;
+    return arr.map((num, i) => {
+        const result = `
+            ${((total + num) / period) * 100}% {
+                fill: ${i % 2 === 0 ? 'white' : 'black'}
+            }
+        `;
+        total += num;
+        return result;
+    }).join('\n');
+};
+
+const generateKeyframesName = ({ characteristic }: Pick<Light, 'characteristic'>) => 'blink_' + characteristic.join('_');
+
+export const Lantern = styled.circle<Pick<Light, 'characteristic'>>`
+    animation-name: ${generateKeyframesName};
+    animation-duration: ${({ characteristic }) => characteristic.reduce(sum, 0)}ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+
+    @keyframes ${generateKeyframesName} {
+        ${generateKeyframes}
+    }
 `;
