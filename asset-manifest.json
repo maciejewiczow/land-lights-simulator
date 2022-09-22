@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/land-lights-simulator/static/js/main.2a5df2f5.js",
+    "main.js": "/land-lights-simulator/static/js/main.802e8781.js",
     "static/js/496.f570dd84.chunk.js": "/land-lights-simulator/static/js/496.f570dd84.chunk.js",
     "index.html": "/land-lights-simulator/index.html",
-    "main.2a5df2f5.js.map": "/land-lights-simulator/static/js/main.2a5df2f5.js.map",
+    "main.802e8781.js.map": "/land-lights-simulator/static/js/main.802e8781.js.map",
     "496.f570dd84.chunk.js.map": "/land-lights-simulator/static/js/496.f570dd84.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.2a5df2f5.js"
+    "static/js/main.802e8781.js"
   ]
 }
