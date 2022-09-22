@@ -11,7 +11,7 @@ export const LandingView: React.FC = () => {
         window.open(
             `${pathname}/controls`,
             'controls',
-            'height=100,width=300,fullscreen=yes,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no',
+            'height=100,width=300,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no',
         );
     }, []);
 
