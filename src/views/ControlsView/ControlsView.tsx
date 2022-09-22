@@ -4,7 +4,7 @@ import { AppState } from 'store';
 import { Wrapper } from './ControlsView.styles';
 import lights from 'lights';
 import { setCurrentLight } from 'store/Light/actions';
-import { randomEntry } from 'utils/arrays';
+import { randomEntry, sum } from 'utils/arrays';
 
 export const ControlsView: React.FC = () => {
     const dispatch = useDispatch();
@@ -30,7 +30,9 @@ export const ControlsView: React.FC = () => {
             </select>
             <button type="button" onClick={setRandomLight}>Losuj</button>
             <br/>
-            Okres: {currentLight.characteristic.map((num, i) => `${i % 2 === 0 ? 'światło' : 'przerwa'} ${(num / 1000).toFixed(2)}s`).join(', ')}
+            Charakterystyka: {currentLight.characteristic.map((num, i) => `${i % 2 === 0 ? 'światło' : 'przerwa'} ${(num / 1000).toFixed(2)}s`).join(', ')}
+            <br/>
+            Okres: {(currentLight.characteristic.reduce(sum, 0) / 1000).toFixed(2)}s
         </Wrapper>
     );
 };
