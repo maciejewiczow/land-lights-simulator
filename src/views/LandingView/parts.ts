@@ -15,6 +15,12 @@ export const SvgWrapper = styled.svg`
     height: 30px;
 `;
 
+export const OpenControlsButton = styled.button`
+    position: absolute;
+    top: 16px;
+    left: 16px;
+`;
+
 const generateKeyframes = ({ characteristic }: Pick<Light, 'characteristic'>) => {
     const period = characteristic.reduce(sum, 0);
 
