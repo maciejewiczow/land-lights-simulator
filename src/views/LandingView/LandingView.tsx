@@ -8,9 +8,11 @@ export const LandingView: React.FC = () => {
     const currentLight = useSelector((state: AppState) => state.currentLight);
     const location = useLocation();
 
+    const pahtname = location.pathname.slice(0, -1);
+
     useEffect(() => {
         window.open(
-            `${location.pathname !== '/' ? location.pathname : ''}/controls`,
+            `${pahtname}/controls`,
             'controls',
             'height=100,width=300,fullscreen=yes,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no',
         );
