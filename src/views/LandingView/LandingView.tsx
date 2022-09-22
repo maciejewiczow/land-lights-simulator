@@ -8,16 +8,16 @@ export const LandingView: React.FC = () => {
     const currentLight = useSelector((state: AppState) => state.currentLight);
     const location = useLocation();
 
-    const pahtname = location.pathname.slice(0, -1);
+    console.log(location);
 
     useEffect(() => {
+        const pathname = location.pathname.slice(0, -1);
         window.open(
-            `${pahtname}/controls`,
+            `${pathname}/controls`,
             'controls',
             'height=100,width=300,fullscreen=yes,toolbar=no,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no',
         );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [location]);
 
     return (
         <Wrapper>
