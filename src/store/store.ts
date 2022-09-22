@@ -13,7 +13,7 @@ const config: Config = {
     prepareState: ({ router, ...state }) => state,
 };
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({ basename: '/land-lights-simulator' });
 
 export const store = createStore(
     createRootReducer(history),
