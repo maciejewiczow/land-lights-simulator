@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/land-lights-simulator/static/js/main.e6d0b469.js",
+    "static/js/496.f570dd84.chunk.js": "/land-lights-simulator/static/js/496.f570dd84.chunk.js",
+    "index.html": "/land-lights-simulator/index.html",
+    "main.e6d0b469.js.map": "/land-lights-simulator/static/js/main.e6d0b469.js.map",
+    "496.f570dd84.chunk.js.map": "/land-lights-simulator/static/js/496.f570dd84.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e6d0b469.js"
+  ]
+}
